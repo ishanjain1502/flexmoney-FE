@@ -3,7 +3,9 @@ import Register from '../components/Authentication/Register'
 const register = () => {
   return (
     <div>
-        <Register/>
+        <div className='flex flex-col items-center' >
+          <Register/>
+        </div>
     </div>
   )
 }

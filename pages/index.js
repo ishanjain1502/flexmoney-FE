@@ -14,7 +14,7 @@ export default function Home() {
       </Head>
       <div className="flex flex-col items-center">
         <div className="w-full h-auto text-3xl p-3 bg-slate-400 min-w-full min-h-full " >
-          Sukhdham Yoga Classes, Join Today
+          Sukhdham Yoga Classes
           <br/>
           <br/>
           Learn the ancient Indian wisdom, and make yourself fit and happy

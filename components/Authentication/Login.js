@@ -56,7 +56,9 @@ const Login = () => {
     let token = "bearer " + `${data.data.token}`;
     if (data.status === 200) {
       localStorage.setItem("token", token);
-      localStorage.setItem("data", data.data);
+      localStorage.setItem("status", data.data.status);
+      localStorage.setItem("batch", data.data.batch);
+
 
       Swal.fire({
         position: "top-end",

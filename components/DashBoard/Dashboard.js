@@ -3,6 +3,19 @@ import { useState, useEffect } from "react";
 import Payment from "./Payment";
 
 const Dashboard = () => {
+  
+  let status;
+
+  useEffect(() => {
+    Render
+  }, [])
+  const Render = async(e) => {
+    if (typeof window !== "undefined") {
+      status = localStorage.getItem("status");
+    }
+  }
+
+
   return (
     <div>
       <div className="h-auto w-full md:w-9/12 bg-yellow-300 p-4 flex flex-col items-center text-black">
@@ -27,7 +40,8 @@ const Dashboard = () => {
           Batch D : 5-6PM
         </div>
       </span>
-      <Payment />
+      <Payment status={status} />
+     
     </div>
   );
 };

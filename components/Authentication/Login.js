@@ -59,7 +59,6 @@ const Login = () => {
       localStorage.setItem("status", data.data.status);
       localStorage.setItem("batch", data.data.batch);
 
-
       Swal.fire({
         position: "top-end",
         icon: "success",

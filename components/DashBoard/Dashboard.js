@@ -3,18 +3,16 @@ import { useState, useEffect } from "react";
 import Payment from "./Payment";
 
 const Dashboard = () => {
-  
   let status;
 
   useEffect(() => {
-    Render
-  }, [])
-  const Render = async(e) => {
+    Render;
+  }, []);
+  const Render = async (e) => {
     if (typeof window !== "undefined") {
       status = localStorage.getItem("status");
     }
-  }
-
+  };
 
   return (
     <div>
@@ -41,7 +39,6 @@ const Dashboard = () => {
         </div>
       </span>
       <Payment status={status} />
-     
     </div>
   );
 };

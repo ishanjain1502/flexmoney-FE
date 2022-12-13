@@ -2,15 +2,14 @@ import React from "react";
 import { useState } from "react";
 import { API_URL } from "../../Utils/url";
 import Swal from "sweetalert2";
-import { useRouter } from 'next/router'
-
+import { useRouter } from "next/router";
 
 const Payment = (props) => {
   const [val, setVal] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const router = useRouter()
+  const router = useRouter();
 
   function handleChange(event) {
     setVal(event.target.value);
@@ -21,7 +20,7 @@ const Payment = (props) => {
     e.preventDefault();
     if (typeof window !== "undefined") {
       let token = localStorage.getItem("token");
-      localStorage.setItem("batch" , val);
+      localStorage.setItem("batch", val);
 
       try {
         const resp = await fetch(`${API_URL}/update`, {
@@ -40,28 +39,23 @@ const Payment = (props) => {
         });
 
         const data = await resp.json();
-        if(data.data.status === true){
+        if (data.data.status === true) {
           Swal.fire(
-            'Good job!',
-            'You Registered for a Healthy LifeStyle!',
-            'success',
-          )
+            "Good job!",
+            "You Registered for a Healthy LifeStyle!",
+            "success"
+          );
         }
       } catch (e) {
         console.log(e);
       }
     }
   };
-  if(val === true){
-    return(
-      <div>
-        You are already Registered
-      </div>
-    )
-  }else{
+  if (val === true) {
+    return <div>You are already Registered</div>;
+  } else {
     console.log();
     return (
-      
       <div>
         <form onSubmit={PaymentFunc}>
           <legend>What is Your Batch Selection?</legend>
@@ -98,7 +92,9 @@ const Payment = (props) => {
           5-6PM
           <br />
           <br />
-          <h4>Fill In Email and Password to carry out payment procedure</h4>{" "}
+          <h4>
+            Fill In Email and Password to carry out payment procedure
+          </h4>{" "}
           <br />
           <label>Email</label>
           <br />

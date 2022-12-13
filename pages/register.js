@@ -1,6 +1,6 @@
-import React from 'react'
-import Register from '../components/Authentication/Register'
-import Head from 'next/head'
+import React from "react";
+import Register from "../components/Authentication/Register";
+import Head from "next/head";
 
 const register = () => {
   return (
@@ -11,11 +11,11 @@ const register = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className='flex flex-col items-center' >
-          <Register/>
+      <div className="flex flex-col items-center">
+        <Register />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default register
+export default register;

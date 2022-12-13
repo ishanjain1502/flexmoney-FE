@@ -13,15 +13,17 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="flex flex-col items-center">
-        <div className="w-full h-auto text-3xl p-3 bg-slate-400 min-w-full min-h-full " >
+        <div className="w-full h-auto text-3xl p-3 bg-slate-400 min-w-full min-h-full ">
           Sukhdham Yoga Classes
-          <br/>
-          <br/>
+          <br />
+          <br />
           Learn the ancient Indian wisdom, and make yourself fit and happy
         </div>
         <Login />
       </div>
-      <Link className="bg-sky-500 hover:bg-sky-700"  href="/register">New here?</Link>
+      <Link className="bg-sky-500 hover:bg-sky-700" href="/register">
+        New here?
+      </Link>
     </div>
   );
 }

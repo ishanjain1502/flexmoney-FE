@@ -13,13 +13,14 @@ const register = () => {
       </Head>
 
       <div className="flex flex-col items-center">
-        <div className="text-3xl bg-slate-400 min-w-full min-h-full p-3" >
+        <div className="text-3xl bg-slate-400 min-w-full min-h-full p-3">
           Join today and learn the art to keep your mind, body and soul balanced
         </div>
         <Register />
       </div>
-      <Link className="bg-sky-500 hover:bg-sky-700"  href="/">Already have an account</Link>
-
+      <Link className="bg-sky-500 hover:bg-sky-700" href="/">
+        Already have an account
+      </Link>
     </div>
   );
 };

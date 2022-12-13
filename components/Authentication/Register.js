@@ -1,6 +1,9 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import RegisterSchema from '../../validations/register';
+import Swal from 'sweetalert2';
+
+import { API_URL } from '../../Utils/url';
 
 const Register = () => {
     const [ state, setState ] = useState({
@@ -18,20 +21,66 @@ const Register = () => {
 
     const { name, age, email, mobile, password, confirmPassword } = state;
 
-    const RegisterUser = (e) => {
+    async function RegisterUser (e){
         e.preventDefault()
-        try{
-            const val = RegisterSchema.validate(state);
-            console.log(val);
-        }catch{
-            if(state.password !== state.confirmPassword){
-                console.log("password mismatch");
-            }
+        if(state.password !== state.confirmPassword){
+            console.log("password mismatch");
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Password Mismatch'
+              })
+        }
+
+
+        const response = await fetch(`${API_URL}/sign_up`, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+                "Access-Control-Allow-Origin": "*",
+			},
+			body: JSON.stringify({
+				name,
+                age,
+				email,
+                mobile,
+				password,
+                confirmPassword
+			}),
+		})
+
+		const data = await response.json()
+        console.log(data);
+        
+		if (data.status ===  200) {
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'You have been registered, Continue to login',
+                showConfirmButton: false,
+                timer: 1500
+            })
+            
+            window.location.href = '/login'
+
+		}else if(data.status === 301){
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Duplicate mobile or email !',
+              })
+        
+        }else {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Something wrong with Validation !',
+              })
         }
     }
 
   return (
-    <div className='h-auto w-9/12 bg-yellow-300 p-4 flex flex-col items-center'  >
+    <div className='h-auto w-full md:w-9/12 bg-yellow-300 p-4 flex flex-col items-center'  >
         <div>
         <div className='text-3xl font-bold text-red-700' >Register</div>
             <form   id='Registeration Form' onSubmit={RegisterUser} >
@@ -50,7 +99,7 @@ const Register = () => {
 
                 <label>Age</label>
                 <br/>
-                <input className='text-white p-1' 
+                <input className='text-white p-1 w-auto md:w-72' 
                     onChange={onChange}
                     type='number'
                     placeholder='Age'
@@ -65,7 +114,7 @@ const Register = () => {
 
                 <label>Email</label>
                 <br/>
-                <input className='text-white p-1 w-72'
+                <input className='text-white p-1 w-auto md:w-72'
                 onChange={onChange}
                 type='email'
                 placeholder='Email Address'
@@ -77,7 +126,7 @@ const Register = () => {
 
                 <label>Mobile</label>
                 <br/>
-                <input className='text-white p-1 w-72'
+                <input className='text-white p-1 w-auto md:w-72'
                 onChange={onChange}
                 type='text'
                 placeholder='Moile Number'
@@ -89,7 +138,7 @@ const Register = () => {
                 
                 <label>Password</label>
                 <br/>
-                <input className='text-white p-1 w-72' 
+                <input className='text-white p-1 w-auto md:w-72' 
                     onChange={onChange}
                     type='text'
                     placeholder='password of atleast 6 characters'
@@ -101,7 +150,7 @@ const Register = () => {
 
                 <label>Comfirm Password</label>
                 <br/>
-                <input className='text-white p-1 w-72' 
+                <input className='text-white p-1 w-auto md:w-72' 
                     onChange={onChange}
                     type='text'
                     placeholder='Re-enter password'

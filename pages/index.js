@@ -11,8 +11,7 @@ export default function Home() {
         <meta name="description" content="Yoga Classes" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className='' >
-        <h1 className=' h-auto w-6/12  flex flex-col items-center bg-red-500 ' >Login for students</h1>
+      <div className='flex flex-col items-center' >
         <Login/>
       </div>
     </div>

@@ -61,7 +61,7 @@ const Register = () => {
                 timer: 1500
             })
             
-            window.location.href = '/login'
+            window.location.href = '/'
 
 		}else if(data.status === 301){
             Swal.fire({

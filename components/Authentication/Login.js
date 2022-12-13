@@ -2,7 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import LoginSchema from '../../validations/login'
 import { API_URL } from '../../Utils/url'
-
+import Swal from 'sweetalert2'
 
 const Login = () => {
 
@@ -19,7 +19,6 @@ const {email, password, } = state;
 // let url = API_URL + "/sign_in"
 
 const LoginUser = async(e) => {
-  console.log(url);
   e.preventDefault()
   try{
       const val = LoginSchema.validate(state);
@@ -55,12 +54,19 @@ const LoginUser = async(e) => {
 
   const data = await response.json()
       console.log(data);
-      token = "bearer" + data.token
-  if (data.data) {
+      let token = "bearer" + data.token
+  if (data.status === 200) {
     localStorage.setItem('token', token)
     localStorage.setItem('username', data.data.username)
-         
-    alert('Login successful')
+    
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'You have been Logged in, Continue to dashboard',
+      showConfirmButton: false,
+      timer: 1500
+  })
+    
     window.location.href = '/dashboard'
   } else {
     // alert('Please check your username and password')

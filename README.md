@@ -17,11 +17,7 @@ The fees was supposed to be paid on a month on month basis and after the complet
 
 ### Technology Used
 
-Architecture - Model-View-Controller with layers of Services that are abstractions to manipulate the data. <br/>
-API - JavaScript (NodeJS) , function based <br/>
-Database - MongoDB <br/>
-Database Querying - Mongoose <br/>
-Database Hosting - Mongo Atlas <br/>
+Architecture - Component Based Architecture <br/>
 Auth - JSON web token <br/>
 API Hosting - Vercel <br/>
 Frontend - NextJS, JavaScript <br/>

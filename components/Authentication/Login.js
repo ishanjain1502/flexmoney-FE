@@ -52,11 +52,11 @@ const Login = () => {
     });
 
     const data = await response.json();
-    console.log(data);
-    let token = "bearer" + data.token;
+    console.log(data.data);
+    let token = "bearer " + `${data.data.token}`;
     if (data.status === 200) {
-      localStorage.setItem("token", token);
-      localStorage.setItem("username", data.data.username);
+      localStorage.setItem("token", token );
+      localStorage.setItem("data", data.data );
 
       Swal.fire({
         position: "top-end",
@@ -77,11 +77,11 @@ const Login = () => {
     <div className="h-auto w-full md:w-9/12 bg-yellow-300 p-4 flex flex-col items-center">
       <div>
         <div className="md:text-3xl font-bold text-red-700">Login</div>
-        <form id="Registeration Form" onSubmit={LoginUser}>
+        <form id="Login Form" onSubmit={LoginUser}>
           <label>Email</label>
           <br />
           <input
-            className="text-white p-1 w-auto md:w-72"
+            className=" p-1 w-auto md:w-72"
             onChange={onChange}
             type="email"
             placeholder="Email Address"
@@ -95,7 +95,7 @@ const Login = () => {
           <label>Password</label>
           <br />
           <input
-            className="text-white p-1 w-auto md:w-72"
+            className="p-1 w-auto md:w-72"
             onChange={onChange}
             type="text"
             placeholder="password of atleast 6 characters"
@@ -106,7 +106,7 @@ const Login = () => {
 
           <br />
           <br />
-          <div className="border-solid border-2 border-red-500 p-0.5 rounded-lg w-24 text-center 	bg-red-700">
+          <div className="border-solid border-2 border-red-500 p-0.5 rounded-lg w-24 text-center text-white	bg-red-700">
             <input type="submit" value="Login" />
           </div>
         </form>

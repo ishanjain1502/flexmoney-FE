@@ -84,7 +84,7 @@ const Register = () => {
           <label>Name</label>
           <br />
           <input
-            className="text-white p-1 w-72"
+            className="p-1 w-72"
             onChange={onChange}
             type="text"
             placeholder="Name"
@@ -99,7 +99,7 @@ const Register = () => {
           <label>Age</label>
           <br />
           <input
-            className="text-white p-1 w-auto md:w-72"
+            className=" p-1 w-auto md:w-72"
             onChange={onChange}
             type="number"
             placeholder="Age"
@@ -116,7 +116,7 @@ const Register = () => {
           <label>Email</label>
           <br />
           <input
-            className="text-white p-1 w-auto md:w-72"
+            className="p-1 w-auto md:w-72"
             onChange={onChange}
             type="email"
             placeholder="Email Address"
@@ -130,7 +130,7 @@ const Register = () => {
           <label>Mobile</label>
           <br />
           <input
-            className="text-white p-1 w-auto md:w-72"
+            className=" p-1 w-auto md:w-72"
             onChange={onChange}
             type="text"
             placeholder="Moile Number"
@@ -144,7 +144,7 @@ const Register = () => {
           <label>Password</label>
           <br />
           <input
-            className="text-white p-1 w-auto md:w-72"
+            className=" p-1 w-auto md:w-72"
             onChange={onChange}
             type="text"
             placeholder="password of atleast 6 characters"
@@ -158,7 +158,7 @@ const Register = () => {
           <label>Comfirm Password</label>
           <br />
           <input
-            className="text-white p-1 w-auto md:w-72"
+            className=" p-1 w-auto md:w-72"
             onChange={onChange}
             type="text"
             placeholder="Re-enter password"
@@ -168,7 +168,7 @@ const Register = () => {
           />
           <br />
           <br />
-          <div className="border-solid border-2 border-red-500 p-0.5 rounded-lg w-24 text-center 	bg-red-700">
+          <div className="border-solid border-2 border-red-500 p-0.5 rounded-lg w-24 text-center text-white	bg-red-700">
             <input type="submit" value="Register" />
           </div>
         </form>
